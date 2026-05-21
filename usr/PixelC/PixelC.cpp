@@ -1,4 +1,7 @@
 ﻿#include "PixelC.h"
+#include <string>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -6,9 +9,14 @@ using namespace std;
 
 string mode;
 
-int error(bool fatal, int code) {
-	// printf("AN ERROR HAS OCURRED. error code:")
-	std::cout << "AN ERROR HAS OCURRED. error code: " << code << "this error is ";
+std::string lowercase(std::string text) {
+    std::transform(text.begin(), text.end(), text.begin(), ::tolower);
+    return text;
+}
+
+
+int error(bool fatal, int code) { // called "catch()" in old versions
+	std::cout << "AN ERROR HAS OCURRED. error code: " << code << "\n this error is ";
 	if (fatal) {
 		printf("FATAL.\n");
 		return 1;
@@ -22,17 +30,30 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 	for (int i = 1; i < argc; i++) {
 		std::string arg = argv[i];
 
-		if (arg == "help" || arg == "h") {
+		if (lowercase(arg) == "help" || lowercase(arg) == "h") {
 			printf("Avaiable commands:\n");
-			printf("update: Updates everything on Pixel/Linux");
+			printf("update: Updates everything on Pixel/Linux\n");
 			
-		} else if (arg == "update") {
+		} else if (lowercase(arg) == "update") {
 			mode = "update";
 			system("chmod +x update.sh && ./update.sh");
 
-		} 
+		} else if (lowercase(arg) == "rollback") {
+			printf("This option intentionally doesnt exist yet.\n");
+
+		} else if (lowercase(arg) == "start") {
+			string temp1 = argv[i + 1];
+			if (lowercase(temp1) == "sdk") {
+				printf("SDK terminal doesnt exist yet");
+			}
+		} else if (lowercase(arg) == "fix") {
+			mode = "fix";
+			// system("chmod +x fix.sh && ./fix.sh");
+			printf("This option intentionally doesnt exist yet.\n");
+
+		}
 		else {
-			printf("INVALID COMMAND. Maybe try help?");
+			printf("INVALID COMMAND. Maybe try help?\n");
 			return 1;
 		}
 	}
