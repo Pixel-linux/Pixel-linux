@@ -33,9 +33,11 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 		if (lowercase(arg) == "help" || lowercase(arg) == "h") {
 			printf("Avaiable commands:\n");
 			printf("update: Updates everything on Pixel/Linux\n");
+			printf("start: Starts an internal program\n");
 			
 		} else if (lowercase(arg) == "update") {
 			mode = "update";
+			system("sudo apt install git -y");
 			system("chmod +x update.sh && ./update.sh");
 
 		} else if (lowercase(arg) == "rollback") {
@@ -44,12 +46,11 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 		} else if (lowercase(arg) == "start") {
 			string temp1 = argv[i + 1];
 			if (lowercase(temp1) == "sdk") {
-				printf("SDK terminal doesnt exist yet");
+				printf("SDK terminal doesnt exist yet\n");
 			}
 		} else if (lowercase(arg) == "fix") {
 			mode = "fix";
-			// system("chmod +x fix.sh && ./fix.sh");
-			printf("This option intentionally doesnt exist yet.\n");
+			system("chmod +x fix.sh && ./fix.sh");
 
 		}
 		else {
