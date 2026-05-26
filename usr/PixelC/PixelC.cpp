@@ -14,7 +14,6 @@ std::string lowercase(std::string text) {
     return text;
 }
 
-
 int error(bool fatal, int code) { // called "catch()" in old versions
 	std::cout << "AN ERROR HAS OCURRED. error code: " << code << "\n this error is ";
 	if (fatal) {
@@ -41,7 +40,8 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 			system("chmod +x update.sh && ./update.sh");
 
 		} else if (lowercase(arg) == "rollback") {
-			printf("This option intentionally doesnt exist yet.\n");
+			// printf("This option intentionally doesnt exist yet.\n");
+			system("echo This option intentionally doesnt exist yet.");
 
 		} else if (lowercase(arg) == "start") {
 			string temp1 = argv[i + 1];
