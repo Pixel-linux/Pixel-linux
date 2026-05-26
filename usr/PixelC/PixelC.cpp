@@ -46,12 +46,21 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 		} else if (lowercase(arg) == "start") {
 			string temp1 = argv[i + 1];
 			if (lowercase(temp1) == "sdk") {
+				mode = "sdk";
 				printf("SDK terminal doesnt exist yet\n");
+
+			} else if (lowercase(temp1) == "settings") {
+
 			}
 		} else if (lowercase(arg) == "fix") {
 			mode = "fix";
 			system("chmod +x fix.sh && ./fix.sh");
 
+		} else if (lowercase(arg) == "cls") {
+			std::cout << "\033[2J\033[H";
+
+		} else if (lowercase(arg) == "echo") {
+			std::cout << argv[i + 1];
 		}
 		else {
 			printf("INVALID COMMAND. Maybe try help?\n");

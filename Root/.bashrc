@@ -100,6 +100,8 @@ alias apt='nala'
 
 # pixel command
 alias pixel="./~/Pixel"
+alias cls="./~/Pixel cls"
+alias echo="./~/Pixel echo"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
