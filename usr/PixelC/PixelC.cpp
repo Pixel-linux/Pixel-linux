@@ -26,6 +26,9 @@ int error(bool fatal, int code) { // called "catch()" in old versions
 }
 
 int main(int argc, char* argv[]) { // im learning C++ and the new command will use it :D
+	if (argc == 1) {
+		printf("Type pixel help to see all avaiable commands");
+	}
 	for (int i = 1; i < argc; i++) {
 		std::string arg = argv[i];
 
@@ -36,6 +39,7 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 			
 		} else if (lowercase(arg) == "update") {
 			mode = "update";
+			printf("updating...");
 			system("sudo apt install git -y");
 			system("chmod +x update.sh && ./update.sh");
 
@@ -54,6 +58,7 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 			}
 		} else if (lowercase(arg) == "fix") {
 			mode = "fix";
+			printf("Reinstalling Pixel stuff... (this may take a while)");
 			system("chmod +x fix.sh && ./fix.sh");
 
 		} else if (lowercase(arg) == "cls") {
@@ -61,6 +66,11 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 
 		} else if (lowercase(arg) == "echo") {
 			std::cout << argv[i + 1];
+		} else if (lowercase(arg) == "help") {
+			printf("Avaiable Pixel arguments:\n ");
+			printf("update: updates every Pixel and APT packages\n");
+			printf("fix: reinstalls Pixel stuff\n");
+			printf("rollback: returns Pixel/Linux to a previous backup (not implemented yet)\n");
 		}
 		else {
 			printf("INVALID COMMAND. Maybe try help?\n");
