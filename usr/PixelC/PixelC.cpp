@@ -32,11 +32,12 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 	for (int i = 1; i < argc; i++) {
 		std::string arg = argv[i];
 
-		if (lowercase(arg) == "help" || lowercase(arg) == "h") {
-			printf("Avaiable commands:\n");
-			printf("update: Updates everything on Pixel/Linux\n");
-			printf("start: Starts an internal program\n");
-			
+		if (lowercase(arg) == "help") {
+			printf("Avaiable Pixel arguments:\n ");
+			printf("update: updates every Pixel and APT packages\n");
+			printf("fix: reinstalls Pixel stuff\n");
+			printf("rollback: returns Pixel/Linux to a previous backup (not implemented yet)\n");
+
 		} else if (lowercase(arg) == "update") {
 			mode = "update";
 			printf("updating...");
@@ -66,12 +67,6 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 
 		} else if (lowercase(arg) == "echo") {
 			std::cout << argv[i + 1];
-		} else if (lowercase(arg) == "help") {
-			printf("Avaiable Pixel arguments:\n ");
-			printf("update: updates every Pixel and APT packages\n");
-			printf("fix: reinstalls Pixel stuff\n");
-			printf("rollback: returns Pixel/Linux to a previous backup (not implemented yet)\n");
-		}
 		else {
 			printf("INVALID COMMAND. Maybe try help?\n");
 			return 1;
