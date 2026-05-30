@@ -67,6 +67,7 @@ int main(int argc, char* argv[]) { // im learning C++ and the new command will u
 
 		} else if (lowercase(arg) == "echo") {
 			std::cout << argv[i + 1];
+		}
 		else {
 			printf("INVALID COMMAND. Maybe try help?\n");
 			return 1;
